@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2017/10/06 19:06:14 by blee             ###   ########.fr       */
+/*   Updated: 2017/10/10 15:52:59 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,15 @@
 # include <pwd.h>
 # include <sys/xattr.h>
 # include <stdio.h>
+
+typedef struct	s_test
+{
+	char		*str;
+	int			num;
+}				t_test;
+
+int		test(void);
+int		bt_cmptest(b_tree *t1, b_tree *t2);
+t_test	*struct_new(char *str);
 
 #endif
