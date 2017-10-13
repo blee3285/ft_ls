@@ -1,25 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.c                                            :+:      :+:    :+:   */
+/*   options.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2017/10/12 17:50:44 by blee             ###   ########.fr       */
+/*   Created: 2017/10/12 18:41:31 by blee              #+#    #+#             */
+/*   Updated: 2017/10/12 18:41:57 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_test	*struct_new(char	*str)
-{
-	t_test	*new;
 
-	new = (t_test*)malloc(sizeof(t_test));
-	if (!new)
-		return (NULL);
-	new->str = ft_strdup(str);
-	new->num = ft_strlen(str);
-	return (new);
-}

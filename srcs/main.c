@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/10/10 17:32:14 by blee             ###   ########.fr       */
+/*   Updated: 2017/10/12 17:57:46 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	bt_putstr(b_tree *node)
 	ft_putstr(test->str);
 	ft_putchar('\n');
 }
-
+/*
 int main(void)
 {
-/*
+
 	DIR	*dir;
 	struct dirent *sd;
 
@@ -41,7 +41,7 @@ int main(void)
 		}
 	}
 	closedir(dir);
-*/
+
 	b_tree *test;
 	char	str1[] = "aaa";
 	char	str2[] = "bbb";
@@ -57,5 +57,23 @@ int main(void)
 	ft_btadd(&test, ft_btnew(struct_new(str4), test_size), bt_cmptest);
 	ft_btadd(&test, ft_btnew(struct_new(str5), test_size), bt_cmptest);
 	ft_btinfix(test, bt_putstr);
+	return (0);
+}
+*/
+
+int		main(int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	if (ac < 2)
+		return (0);
+	while (ac > 1)
+	{
+		ft_printf("%s ", av[i]);
+		i++;
+		ft_printf("%d\n", ac);
+		ac--;
+	}
 	return (0);
 }
