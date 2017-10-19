@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/10/12 17:57:46 by blee             ###   ########.fr       */
+/*   Updated: 2017/10/18 18:34:07 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,11 @@ int main(void)
 
 int		main(int ac, char **av)
 {
-	int	i;
+	int		i;
+	char	input;
 
 	i = 1;
+	input = NULL;
 	if (ac < 2)
 		return (0);
 	while (ac > 1)
@@ -74,6 +76,9 @@ int		main(int ac, char **av)
 		i++;
 		ft_printf("%d\n", ac);
 		ac--;
+		input = ft_strdup(av[i]);
+		//parse str
+		free(input);
 	}
 	return (0);
 }
