@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2017/10/10 13:35:16 by blee             ###   ########.fr        #
+#    Updated: 2017/10/27 18:46:04 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIBFT = ./libft/libft.a
 
 SRC_FILES = ft_ls.c \
 			bt_cmp.c \
+			check_inputs.c \
 			main.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))

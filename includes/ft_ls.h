@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2017/10/12 17:38:35 by blee             ###   ########.fr       */
+/*   Updated: 2017/10/27 18:48:06 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct	s_test
 	int			num;
 }				t_test;
 
-int		bt_cmptest(b_tree *t1, b_tree *t2);
+int		bt_cmptest(t_btree *t1, t_btree *t2);
 t_test	*struct_new(char *str);
+int		check_inputs(int ac, char **av);
 
 #endif

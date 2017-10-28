@@ -6,13 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/10/18 18:34:07 by blee             ###   ########.fr       */
+/*   Updated: 2017/10/27 18:50:56 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	bt_putstr(b_tree *node)
+void	bt_putstr(t_btree *node)
 {
 	t_test	*test;
 
@@ -63,22 +63,8 @@ int main(void)
 
 int		main(int ac, char **av)
 {
-	int		i;
-	char	input;
-
-	i = 1;
-	input = NULL;
 	if (ac < 2)
 		return (0);
-	while (ac > 1)
-	{
-		ft_printf("%s ", av[i]);
-		i++;
-		ft_printf("%d\n", ac);
-		ac--;
-		input = ft_strdup(av[i]);
-		//parse str
-		free(input);
-	}
+	check_inputs(ac, av);
 	return (0);
 }
