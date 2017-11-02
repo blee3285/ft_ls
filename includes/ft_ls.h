@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2017/10/27 18:48:06 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/01 17:50:23 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ typedef struct	s_test
 
 int		bt_cmptest(t_btree *t1, t_btree *t2);
 t_test	*struct_new(char *str);
-int		check_inputs(int ac, char **av);
+int		*check_inputs(int ac, char **av);
 
 #endif

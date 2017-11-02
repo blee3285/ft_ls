@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/10/27 18:50:56 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/01 17:52:07 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,19 @@ int main(void)
 
 int		main(int ac, char **av)
 {
+	int		*flags;
+	int		i;
+
+	i = 0;
 	if (ac < 2)
 		return (0);
-	check_inputs(ac, av);
+	flags = check_inputs(ac, av);
+	while (i < 6)
+	{
+		ft_putnbr(flags[i]);
+		ft_putchar(' ');
+		i++;
+	}
+	ft_putchar('\n');
 	return (0);
 }
