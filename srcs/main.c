@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/11/01 17:52:07 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/03 17:53:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,10 @@ int main(void)
 
 int		main(int ac, char **av)
 {
-	int		*flags;
-	int		i;
+	int				*flags;
+	int				i;
+	struct stat		info;
+	mode_t			mode;
 
 	i = 0;
 	if (ac < 2)
@@ -77,5 +79,12 @@ int		main(int ac, char **av)
 		i++;
 	}
 	ft_putchar('\n');
+	stat("Makefile", &info);
+	mode = info.st_mode;
+	i = mode & S_IFMT;
+	if (i == S_IFDIR)
+		ft_printf("Is Directory\n");
+	else if (i == S_IFREG)
+		ft_printf("Is REG File\n");
 	return (0);
 }

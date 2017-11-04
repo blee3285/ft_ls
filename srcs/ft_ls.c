@@ -6,13 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2017/10/12 17:50:44 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/03 16:14:33 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_test	*struct_new(char	*str)
+t_test	*struct_new(char *str)
 {
 	t_test	*new;
 
