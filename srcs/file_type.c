@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bt_cmp.c                                           :+:      :+:    :+:   */
+/*   file_type.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:25:03 by blee              #+#    #+#             */
-/*   Updated: 2017/11/04 16:22:14 by blee             ###   ########.fr       */
+/*   Created: 2017/11/05 15:22:13 by blee              #+#    #+#             */
+/*   Updated: 2017/11/05 17:26:21 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		bt_cmpname(t_btree *t1, t_btree *t2)
+char	check_type(mode_t mode)
 {
-	t_file	*node1;
-	t_file	*node2;
+	int		i;
 
-	node1 = (t_file*)t1->data;
-	node2 = (t_file*)t2->data;
-	return (ft_strcmp(node1->name, node2->name));
+	i = mode & S_IFMT;
+	if (i == S_IFDIR)
+		return 'd';
+	else if (i == S_IFCHR)
+		return 'c';
+	else if (i == S_IFBLK)
+		return 'b';
+	else if (i == S_IFREG)
+		return 'r';
+	else if (i == S_IFIFO)
+		return 'f';
+	else if (i == S_IFLNK)
+		return 'l';
+	else if (i == S_IFSOCK)
+		return 's';
 }

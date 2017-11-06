@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/11/03 17:53:47 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/05 17:26:50 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	bt_putstr(t_btree *node)
 {
-	t_test	*test;
+	t_file	*test;
 
 	test = node->data;
-	ft_putstr(test->str);
+	ft_putstr(test->name);
 	ft_putchar('\n');
 }
 /*
@@ -79,7 +79,7 @@ int		main(int ac, char **av)
 		i++;
 	}
 	ft_putchar('\n');
-	stat("Makefile", &info);
+	stat(".", &info);
 	mode = info.st_mode;
 	i = mode & S_IFMT;
 	if (i == S_IFDIR)
