@@ -6,13 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/05 15:22:13 by blee              #+#    #+#             */
-/*   Updated: 2017/11/05 17:26:21 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/09 16:39:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	check_type(mode_t mode)
+char	check_filetype(mode_t mode)
 {
 	int		i;
 
@@ -31,4 +31,6 @@ char	check_type(mode_t mode)
 		return 'l';
 	else if (i == S_IFSOCK)
 		return 's';
+	else
+		return 'r';
 }

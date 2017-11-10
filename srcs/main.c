@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/11/05 17:26:50 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/09 16:40:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		main(int ac, char **av)
 		i++;
 	}
 	ft_putchar('\n');
-	stat(".", &info);
+	stat(av[2], &info);
 	mode = info.st_mode;
 	i = mode & S_IFMT;
 	if (i == S_IFDIR)

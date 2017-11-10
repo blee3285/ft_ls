@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2017/11/05 18:02:05 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/09 16:38:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,4 @@ t_file	*file_new(char *str)
  * 5. print bt, based on what flags are used
  * 6. if multiple DIR are found, call ft_ls on them at end of function and print the name of
  * directory before the rest of the contents?
- 
+**/

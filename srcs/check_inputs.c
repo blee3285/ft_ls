@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2017/11/01 18:01:39 by blee             ###   ########.fr       */
+/*   Updated: 2017/11/09 16:51:14 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		*check_inputs(int ac, char **av)
 		flags = ft_intarray(6);
 	while (i < ac)
 	{
-		ft_printf("{cyan}%s{noc}\n", av[i]);
+		ft_printf("{cyan}%s{eoc}\n", av[i]);
 		i++;
 	}
 	return (flags);
