@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2017/11/09 16:40:41 by blee             ###   ########.fr       */
+/*   Updated: 2017/12/01 18:39:08 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,6 @@ int		main(int ac, char **av)
 	ft_putchar('\n');
 	stat(av[2], &info);
 	mode = info.st_mode;
-	i = mode & S_IFMT;
-	if (i == S_IFDIR)
-		ft_printf("Is Directory\n");
-	else if (i == S_IFREG)
-		ft_printf("Is REG File\n");
+	ft_printf("%c", check_filetype(mode));
 	return (0);
 }
