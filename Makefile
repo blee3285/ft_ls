@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2017/11/20 11:56:16 by blee             ###   ########.fr        #
+#    Updated: 2018/01/16 15:39:22 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = ./libft/libft.a
 
 
 SRC_FILES = ft_ls.c \
-			bt_cmp.c \
+			bt_func.c \
 			check_inputs.c \
 			file_att.c \
 			main.c
