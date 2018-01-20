@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/01/16 16:29:48 by blee             ###   ########.fr       */
+/*   Updated: 2018/01/19 14:22:53 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		flag_id(char c, char *flags)
 	return (-1);
 }
 
-void	parse_inputs(char *input, int **flags)
+int		parse_inputs(char *input, int **flags)
 {
 	//return int array with flags
 	//flags: -l -R -a -r -t
@@ -39,23 +39,33 @@ void	parse_inputs(char *input, int **flags)
 	{
 		if ((id = flag_id(*input, "lRart")) != -1)
 			temp[id] = 1;
+		else
+			return (0);
 		input++;
 	}
+	return (1);
 }
 
 int		*check_inputs(int ac, char **av, t_btree **tree)
 {
 	int		i;
+	int		valid;
 	int		*flags;
 
 	i = 1;
+	valid = 0;
 	flags = ft_intarray(6);
 	if (ac == 1)
 		return (0);
 	while (av[i][0] == '-')
 	{
 		ft_printf("Found Flags\n");
-		parse_inputs(av[i], &flags);
+		valid = parse_inputs(av[i], &flags);
+		if (!valid)
+		{
+			free(flags);
+			return (NULL);
+		}
 		i++;
 	}
 	while (i < ac)
@@ -64,5 +74,4 @@ int		*check_inputs(int ac, char **av, t_btree **tree)
 		i++;
 	}
 	return (flags);
-	//return array for flags, and sort av
 }
