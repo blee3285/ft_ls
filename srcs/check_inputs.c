@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/01/19 14:22:53 by blee             ###   ########.fr       */
+/*   Updated: 2018/01/24 19:14:44 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int		parse_inputs(char *input, int **flags)
 	{
 		if ((id = flag_id(*input, "lRart")) != -1)
 			temp[id] = 1;
-		else
-			return (0);
+		//else
+		//	return (0);
 		input++;
 	}
 	return (1);
@@ -70,7 +70,7 @@ int		*check_inputs(int ac, char **av, t_btree **tree)
 	}
 	while (i < ac)
 	{
-		ft_btadd(tree, ft_btnew(file_new(av[i]), sizeof(t_file)), bt_cmpname);
+		ft_btadd(tree, ft_btnew(new_file(av[i]), sizeof(t_file)), bt_cmpname);
 		i++;
 	}
 	return (flags);

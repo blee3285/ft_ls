@@ -6,28 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/01/19 17:52:00 by blee             ###   ########.fr       */
+/*   Updated: 2018/01/24 18:28:08 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-t_file	*file_new(char *str)
-{
-	t_file		*new;
-	struct stat	info;
-	int			valid;
-
-	valid = stat(str, &info);
-	if (!valid)
-		return (NULL);
-	new = (t_file*)malloc(sizeof(t_file));
-	if (!new)
-		return (NULL);
-	new->name = ft_strdup(str);
-	new->type = 0;
-	return (new);
-}
 
 /*
  *Populating files

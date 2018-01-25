@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/01/16 15:39:22 by blee             ###   ########.fr        #
+#    Updated: 2018/01/24 18:28:31 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC_FILES = ft_ls.c \
 			bt_func.c \
 			check_inputs.c \
 			file_att.c \
+			init_file.c \
 			main.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
