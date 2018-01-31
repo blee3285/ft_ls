@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/01/24 19:04:18 by blee             ###   ########.fr       */
+/*   Updated: 2018/01/30 19:33:42 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,23 @@ int		main(int ac, char **av)
 {
 	int				*flags;
 	int				i;
-	t_btree			*tree;
+	//t_btree			*tree;
 	//struct stat		info;
 	//mode_t			mode;
 
 	i = 0;
 	if (ac < 2)
 		return (0);
-	flags = check_inputs(ac, av, &tree);
-	while (i < 6)
-	{
-		ft_putnbr(flags[i]);
-		ft_putchar(' ');
-		i++;
-	}
-	ft_putchar('\n');
-	ft_btinfix(tree, bt_putstr);
+	flags = check_inputs(ac, av);
+	ft_ls(flags, ac, av);
+	//while (i < 6)
+	//{
+	//	ft_putnbr(flags[i]);
+	//	ft_putchar(' ');
+	//	i++;
+	//}
+	//ft_putchar('\n');
+	//ft_btinfix(tree, bt_putstr);
 	//stat(av[2], &info);
 	//mode = info.st_mode;
 	//ft_printf("%c", check_filetype(mode));

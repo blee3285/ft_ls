@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/01/24 19:14:44 by blee             ###   ########.fr       */
+/*   Updated: 2018/01/30 15:41:31 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		parse_inputs(char *input, int **flags)
 	return (1);
 }
 
-int		*check_inputs(int ac, char **av, t_btree **tree)
+int		*check_inputs(int ac, char **av)
 {
 	int		i;
 	int		valid;
@@ -68,10 +68,10 @@ int		*check_inputs(int ac, char **av, t_btree **tree)
 		}
 		i++;
 	}
-	while (i < ac)
-	{
-		ft_btadd(tree, ft_btnew(new_file(av[i]), sizeof(t_file)), bt_cmpname);
-		i++;
-	}
+	//while (i < ac)
+	//{
+	//	ft_btadd(tree, ft_btnew(new_file(av[i]), sizeof(t_file)), bt_cmpname);
+	//	i++;
+	//}
 	return (flags);
 }

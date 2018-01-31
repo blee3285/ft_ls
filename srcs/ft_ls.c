@@ -6,11 +6,30 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/01/24 18:28:08 by blee             ###   ########.fr       */
+/*   Updated: 2018/01/30 20:06:16 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+int		ft_ls(int *flags, int ac, char **av)
+{
+	t_btree		*files;
+	int			i;
+
+	i = 0;
+	while (i < 6)
+	{
+		ft_putnbr(flags[i]);
+		ft_putchar(' ');
+		i++;
+	}
+	i = 1;
+	files = build_tree(ac, av);
+	ft_putchar('\n');
+	ft_btinfix(files, bt_putstr);
+	return (0);
+}
 
 /*
  *Populating files

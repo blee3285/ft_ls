@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/01/24 18:32:45 by blee             ###   ########.fr       */
+/*   Updated: 2018/01/30 18:59:04 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct	s_file
 int		bt_cmpname(t_btree *t1, t_btree *t2);
 t_file	*new_file(char *str);
 char	check_filetype(mode_t mode);
-int		*check_inputs(int ac, char **av, t_btree **tree);
+int		*check_inputs(int ac, char **av);
+t_btree	*build_tree(int total, char **av);
+void	bt_putstr(t_btree *node);
+int		ft_ls(int *flags, int ac, char **av);
 
 #endif
