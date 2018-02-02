@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/01/30 20:06:16 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/01 17:39:19 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int		ft_ls(int *flags, int ac, char **av)
 	ft_putchar('\n');
 	ft_btinfix(files, bt_putstr);
 	return (0);
+}
+
+int		ft_lsdir(int *flags, int ac, char **av)
+{
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/01/30 19:56:11 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/01 14:54:12 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ char	*get_perm(mode_t fmode)
 t_file	*new_file(char *str)
 {
 	t_file		*new;
-	//struct stat	info;
-	//int			valid;
+	struct stat	info;
+	int			valid;
 
-	//valid = stat(str, &info);
+	valid = stat(str, &info);
 	if (!(new = (t_file*)malloc(sizeof(t_file))))
 		return (NULL);
 	new->name = ft_strdup(str);
-	new->type = 0;
+	new->type = check_filetype(info.st_mode);
 	return (new);
 }
