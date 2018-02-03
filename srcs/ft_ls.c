@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/02/01 17:39:19 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/02 17:55:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,20 @@ int		ft_ls(int *flags, int ac, char **av)
 	return (0);
 }
 
-int		ft_lsdir(int *flags, int ac, char **av)
+int		ft_lsdir(char *path)
 {
+	DIR				*dir;
+	struct dirent	*sd;
+	t_btree			*files;
+
+	dir = opendir(path);
+	while ((sd = readdir(dir)) != NULL)
+	{
+		ft_btadd(&files, ft_btnew(new_file(sd->d_name), sizeof(t_file)), bt_cmpname);
+	}
+	ft_putchar('\n');
+	ft_btinfix(files, bt_putstr);
+	return (0);
 }
 
 /*
