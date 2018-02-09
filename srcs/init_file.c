@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/01 14:54:12 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/08 16:59:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,17 @@ t_file	*new_file(char *str)
 		return (NULL);
 	new->name = ft_strdup(str);
 	new->type = check_filetype(info.st_mode);
+	return (new);
+}
+
+t_param	*new_param(int ac, char **av)
+{
+	t_param		*new;
+
+	if (!(new = (t_param*)malloc(sizeof(t_file))))
+		return (NULL);
+	new->flags = check_inputs(ac, av);
+	new->count = ac;
+	new->files = build_tree(ac, av);
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/02/02 18:14:28 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/08 18:33:32 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,16 @@ int main(void)
 
 int		main(int ac, char **av)
 {
-	int				*flags;
 	int				i;
+	t_param			*param;
 	//struct stat		info;
 	//mode_t			mode;
 
 	i = 0;
 	if (ac < 2)
 		return (0);
-	flags = check_inputs(ac, av);
-	ft_ls(flags, ac, av);
-	ft_lsdir("libft/srcs");
+	param = new_param(ac, av);
+	ft_ls(param);
 	//stat(av[2], &info);
 	//mode = info.st_mode;
 	//ft_printf("%c", check_filetype(mode));
