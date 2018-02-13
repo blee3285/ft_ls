@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/08 18:39:10 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/12 16:35:53 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_param
 int		bt_cmpname(t_btree *t1, t_btree *t2);
 t_file	*new_file(char *str);
 char	check_filetype(mode_t mode);
+char	*get_perm(mode_t fmode);
 int		*check_inputs(int ac, char **av);
 t_btree	*build_tree(int total, char **av);
 t_param	*new_param(int ac, char **av);
