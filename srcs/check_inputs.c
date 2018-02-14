@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/01/30 15:41:31 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/13 15:50:37 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,5 @@ int		*check_inputs(int ac, char **av)
 		}
 		i++;
 	}
-	//while (i < ac)
-	//{
-	//	ft_btadd(tree, ft_btnew(new_file(av[i]), sizeof(t_file)), bt_cmpname);
-	//	i++;
-	//}
 	return (flags);
 }

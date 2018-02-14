@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/12 16:35:53 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/13 20:13:25 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ typedef struct	s_file
 {
 	char		*name;
 	char		type;
-
+	//char		*permissions;
+	//long		links;
+	//char		*usr_name;
+	//char		*grp_name;
+	//long long	size;
+	//
 }				t_file;
 
 typedef struct	s_param
