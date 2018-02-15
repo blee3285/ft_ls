@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/02/08 18:33:32 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/14 17:52:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	bt_putstr(t_btree *node)
 	test = node->data;
 	ft_putstr(test->name);
 	ft_putchar('\n');
-	ft_printf("%c\n", test->type);
+	ft_printf("Type: %c", test->type);
+	ft_printf("Permissions: %s\n", test->perm);
+	ft_printf("Links: %D\n", test->links);
+	//ft_printf("UID: %s\n", test->usr_name);
 }
 /*
 int main(void)
