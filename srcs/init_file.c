@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/14 19:18:14 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/15 17:49:34 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ t_file	*new_file(char *str)
 	new->type = check_filetype(info.st_mode);
 	new->perm = get_perm(info.st_mode);
 	new->links = (long)info.st_nlink;
-	//new->usr_name = ft_strdup((char*)info.st_uid);
+	new->usr_name = usr_name(info.st_uid);
+	new->grp_name = grp_name(info.st_gid);
+	new->size = (long long)info.st_size;
 	return (new);
 }
 

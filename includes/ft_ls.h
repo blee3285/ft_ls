@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/14 17:52:47 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/15 17:48:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct	s_file
 	char		*perm;
 	long		links;
 	char		*usr_name;
-	//char		*grp_name;
-	//long long	size;
+	char		*grp_name;
+	long long	size;
 	//
 }				t_file;
 
@@ -50,6 +50,8 @@ char	*get_perm(mode_t fmode);
 int		*check_inputs(int ac, char **av);
 t_btree	*build_tree(int total, char **av);
 t_param	*new_param(int ac, char **av);
+char	*usr_name(uid_t uid);
+char	*grp_name(gid_t gid);
 
 //	printing
 void	bt_putstr(t_btree *node);
