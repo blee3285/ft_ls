@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/02/15 18:18:01 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/20 20:27:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	bt_putstr(t_btree *node)
 {
 	t_file	*test;
+	char	*mod_time;
 
 	test = node->data;
+	mod_time = ctime((const long*)&test->mtime);
 	ft_putstr(test->name);
 	ft_putchar('\n');
 	ft_printf("Permissions: %c", test->type);
@@ -25,6 +27,7 @@ void	bt_putstr(t_btree *node)
 	ft_printf("UID: %s\n", test->usr_name);
 	ft_printf("GID: %s\n", test->grp_name);
 	ft_printf("Size: %lld\n", test->size);
+	ft_printf("mTime: %s\n", mod_time);
 }
 /*
 int main(void)

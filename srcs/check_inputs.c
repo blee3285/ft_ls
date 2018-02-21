@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/02/13 15:50:37 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/20 14:30:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int		flag_id(char c, char *flags)
 	return (-1);
 }
 
-int		parse_inputs(char *input, int **flags)
+int		parse_inputs(char *input, char **flags)
 {
 	//return int array with flags
 	//flags: -l -R -a -r -t
-	int		*temp;
+	char		*temp;
 	int		id;
 
 	id = 0;
@@ -38,7 +38,7 @@ int		parse_inputs(char *input, int **flags)
 	while (*input)
 	{
 		if ((id = flag_id(*input, "lRart")) != -1)
-			temp[id] = 1;
+			temp[id] = *input;
 		//else
 		//	return (0);
 		input++;
@@ -46,15 +46,16 @@ int		parse_inputs(char *input, int **flags)
 	return (1);
 }
 
-int		*check_inputs(int ac, char **av)
+char	*check_inputs(int ac, char **av)
 {
 	int		i;
 	int		valid;
-	int		*flags;
+	char	*flags;
 
 	i = 1;
 	valid = 0;
-	flags = ft_intarray(6);
+	flags = ft_strnew(7);
+	ft_memset(flags, '-', 6);
 	if (ac == 1)
 		return (0);
 	while (av[i][0] == '-')

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/02/08 18:26:20 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/20 20:10:46 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,26 @@
 
 int		ft_ls(t_param *param)
 {
-	int			i;
-
-	i = 0;
-	while (i < 6)
-	{
-		ft_putnbr(param->flags[i]);
-		ft_putchar(' ');
-		i++;
-	}
-	i = 1;
-	ft_putchar('\n');
+	ft_printf("%s\n", param->flags);
 	ft_btinfix(param->files, bt_putstr);
 	return (0);
 }
 
-int		ft_lsdir(char *path)
-{
-	DIR				*dir;
-	struct dirent	*sd;
-	t_btree			*files;
+//int		ft_lsdir(char *path)
+//{
+//	DIR				*dir;
+//	struct dirent	*sd;
+//	t_btree			*files;
 
-	dir = opendir(path);
-	while ((sd = readdir(dir)) != NULL)
-	{
-		ft_btadd(&files, ft_btnew(new_file(sd->d_name), sizeof(t_file)), bt_cmpname);
-	}
-	ft_putchar('\n');
-	ft_btinfix(files, bt_putstr);
-	return (0);
-}
+//	dir = opendir(path);
+//	while ((sd = readdir(dir)) != NULL)
+//	{
+		//ft_btadd(&files, ft_btnew(new_file(sd->d_name), sizeof(t_file)), bt_cmpname);
+//	}
+//	ft_putchar('\n');
+//	ft_btinfix(files, bt_putstr);
+//	return (0);
+//}
 
 /*
  *Populating files
