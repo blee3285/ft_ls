@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/20 20:30:55 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/22 18:26:00 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,18 @@ t_param	*new_param(int ac, char **av)
 {
 	t_param		*param;
 	t_file		*file;
-	t_btree		*tree;
 	int			i;
 
 	i = 1;
 	file = NULL;
-	tree = NULL;
 	if (!(param = (t_param*)malloc(sizeof(t_file))))
 		return (NULL);
 	param->flags = check_inputs(ac, av);
-	param->count = ac;
+	param->count = 0;
 	param->blocks = 0;
-	while (av[i][0] == '-')
-		i++;
-	while (av[i])
-	{
-		file = new_file(av[i], param);
-		ft_btadd(&tree, ft_btnew(file, sizeof(t_file)), bt_cmpname);
-		i++;
-	}
-	ft_printf("Total Blocks: %d\n", param->blocks);
-	param->files = tree;
+	param->files = NULL;
+	ls_build_tree(ac, av, param);
+	ft_printf("Files Found: %d\n", param->count);
+	ft_printf("Total Blocks: %lld\n", param->blocks);
 	return (param);
 }

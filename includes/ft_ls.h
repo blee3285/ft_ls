@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/20 20:03:11 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/22 19:09:18 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,13 @@ t_file	*new_file(char *str, t_param *param);
 char	check_filetype(mode_t mode);
 char	*get_perm(mode_t fmode);
 char	*check_inputs(int ac, char **av);
-t_btree	*build_tree(int total, char **av);
-int		ls_add_node(t_btree *tree, t_file *new_node);
+int		ls_build_tree(int ac, char **av, t_param *param);
 t_param	*new_param(int ac, char **av);
 char	*usr_name(uid_t uid);
 char	*grp_name(gid_t gid);
+
+//	recursion?
+int		bt_dircheck(t_btree *node);
 
 //	printing
 void	bt_putstr(t_btree *node);

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/02/20 14:30:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/22 16:24:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,8 @@ char	*check_inputs(int ac, char **av)
 	valid = 0;
 	flags = ft_strnew(7);
 	ft_memset(flags, '-', 6);
-	if (ac == 1)
-		return (0);
-	while (av[i][0] == '-')
+	while ((i < ac) && (av[i][0] == '-'))
 	{
-		ft_printf("Found Flags\n");
 		valid = parse_inputs(av[i], &flags);
 		if (!valid)
 		{

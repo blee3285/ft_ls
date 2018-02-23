@@ -6,35 +6,34 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 15:50:27 by blee              #+#    #+#             */
-/*   Updated: 2018/02/20 20:04:05 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/22 18:24:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_btree		*build_tree(int total, char **av)
+int		ls_build_tree(int ac, char **av, t_param *param)
 {
-	t_btree		*tree;
+	t_file		*file;
 	int			i;
 
 	i = 1;
-	tree = NULL;
-	while (av[i][0] == '-')
+	file = NULL;
+	while ((i < ac) && (av[i][0] == '-'))
 		i++;
-	while (i < total)
+	if (i == ac)
 	{
-		//ft_btadd(&tree, ft_btnew(new_file(av[i]), sizeof(t_file)), bt_cmpname);
-		i++;
+		file = new_file(".", param);
+		ft_btadd(&(param->files), ft_btnew(file, sizeof(t_file)), bt_cmpname);
+		param->count++;
 	}
-	return (tree);
-}
-
-int		ls_add_node(t_btree *tree, t_file *new_node)
-{
-	if (new_node)
-	{
-		ft_btadd(&tree, ft_btnew(new_node, sizeof(t_file)), bt_cmpname);
-		return(1);
-	}
-	return (0);
+	else
+		while (i < ac)
+		{
+			file = new_file(av[i], param);
+			ft_btadd(&(param->files), ft_btnew(file, sizeof(t_file)), bt_cmpname);
+			i++;
+			param->count++;
+		}
+	return (1);
 }
