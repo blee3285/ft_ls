@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/22 19:09:18 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/23 21:58:51 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 typedef struct	s_file
 {
 	char			*name;
+	char			*path;
 	char			type;
 	char			*perm;
 	long			links;
@@ -57,12 +58,15 @@ char	*grp_name(gid_t gid);
 
 //	recursion?
 int		bt_dircheck(t_btree *node);
+t_file	*new_dir_file(char *path, char *name, t_param *param);
+t_param	*new_param_dir(char *dir_name, t_param *old);
+int		ls_open_dir(char *dir_name, t_param *param);
 
 //	printing
 void	bt_putstr(t_btree *node);
 
 //	main func
 int		ft_ls(t_param *param);
-int		ft_lsdir(char *path);
+//int		ft_lsdir(char *path);
 
 #endif

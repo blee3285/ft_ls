@@ -6,39 +6,28 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/02/22 19:35:17 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/23 22:01:46 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	**ls_open_dir(char *dir_name)
-{
-	DIR				*dir;
-	struct dirent	*sd;
-	char			**out;
-	int				i;
-
-	out = NULL;
-	i = 0;
-	dir = opendir(dir_name);
-	if (!dir)
-		return (NULL);
-	return (out);
-}
-
 int		ft_ls(t_param *param)
 {
-	char	**next_input;
+	t_param	*new_dir;
+	t_file	*file;
 
-	next_input = NULL;
+	new_dir = NULL;
+	file = param->files->data;
 	ft_printf("%s\n", param->flags);
 	ft_btinfix(param->files, bt_putstr);
 	if (param->count == 1)
 	{
 		if (bt_dircheck(param->files))
 		{
-
+			ft_printf("Opening New Dir\n\n");
+			new_dir = new_param_dir(file->name, param);
+			ft_ls(new_dir);
 		}
 	}
 	return (0);
