@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/02/22 16:14:09 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/27 15:22:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ int		main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	param = new_param(ac, av);
+	if (param == NULL)
+	{
+		return (0);
+	}
 	ft_ls(param);
 	//stat(av[2], &info);
 	//mode = info.st_mode;

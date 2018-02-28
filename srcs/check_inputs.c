@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/02/22 16:24:49 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/27 15:36:29 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,17 @@ int		parse_inputs(char *input, char **flags)
 
 	id = 0;
 	temp = *flags;
+	input++;
 	while (*input)
 	{
 		if ((id = flag_id(*input, "lRart")) != -1)
 			temp[id] = *input;
-		//else
-		//	return (0);
+		else
+		{
+			ft_printf("ls: illegal option -- %c\n", *input); 
+			ft_printf("usage: ls [-Ralrt]\n");
+			return (0);
+		}
 		input++;
 	}
 	return (1);
@@ -54,7 +59,7 @@ char	*check_inputs(int ac, char **av)
 
 	i = 1;
 	valid = 0;
-	flags = ft_strnew(7);
+	flags = ft_strnew(8);
 	ft_memset(flags, '-', 6);
 	while ((i < ac) && (av[i][0] == '-'))
 	{

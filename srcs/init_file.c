@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/23 22:12:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/27 15:27:46 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ t_param	*new_param(int ac, char **av)
 	if (!(param = (t_param*)malloc(sizeof(t_file))))
 		return (NULL);
 	param->flags = check_inputs(ac, av);
+	if ((param->flags) == NULL)
+	{
+		free(param);
+		return (NULL);
+	}
 	param->count = 0;
 	param->blocks = 0;
 	param->files = NULL;
