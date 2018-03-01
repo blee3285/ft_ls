@@ -6,42 +6,37 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/27 17:21:49 by blee              #+#    #+#             */
-/*   Updated: 2018/02/27 19:08:04 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/28 21:27:22 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+//flags: -l -R -a -r -t
 
 int		print_recursive()
 {
 	return (0);
 }
 
-int		print_once()
+void		print_once(t_param *param)
 {
-	return (0);
+	if (param->flags[0])
+	{
+		//print_long
+	}
+	else
+	{
+		ls_print_short();
+	}
 }
 
-int		print_long()
+void		ls_print(t_param *param)
 {
-	return (0);
-}
-
-int		print_short()
-{
-	return (0);
-}
-
-int		ls_print(t_param *param)
-{
-	char	*flags;
-
-	flags = param->flags;
-	if (flags[1])
+	if (param->flags[1])
 	{
 		print_recursive();
 	}
 	else
 		print_once;
-	return (0);
 }

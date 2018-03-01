@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:05:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/02 17:56:21 by blee             ###   ########.fr       */
+/*   Updated: 2018/02/28 18:13:01 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,14 @@ int		bt_dircheck(t_btree *node)
 		return (1);
 	else
 		return (0);
+}
+
+void	bt_infix_ls(t_btree *root, void (*func)(t_btree*, t_param*))
+{
+	if (root)
+	{
+		bt_infix_ls(root->left, func);
+		func(root);
+		bt_infix_ls(root->right, func);
+	}
 }
