@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/02/12 16:55:10 by blee             ###   ########.fr        #
+#    Updated: 2018/03/02 17:04:12 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,17 @@ OBJ_DIR = ./objs
 LIBFT = ./libft/libft.a
 
 
-SRC_FILES = ft_ls.c \
-			bt_func.c \
+SRC_FILES = bt_func.c \
+			build_tree.c \
 			check_inputs.c \
 			file_att1.c \
 			file_att2.c \
+			ft_ls.c \
+			get_len.c \
 			init_file.c \
-			build_tree.c \
-			main.c
+			main.c \
+			print_short.c \
+			printing.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/28 21:27:45 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/02 20:36:34 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ typedef struct	s_param
 	t_btree		*files;
 	char		*flags;
 	int			count;
+	int			namelen;
+	int			linklen;
+	int			usrlen;
+	int			grplen;
+	int			sizelen;
 	long long	blocks;
 }				t_param;
 
@@ -55,6 +60,7 @@ int		ls_build_tree(int ac, char **av, t_param *param);
 t_param	*new_param(int ac, char **av);
 char	*usr_name(uid_t uid);
 char	*grp_name(gid_t gid);
+void	ls_get_len(t_file *file, t_param *param);
 
 //	recursion?
 int		bt_dircheck(t_btree *node);
@@ -64,9 +70,9 @@ int		ls_open_dir(char *dir_name, t_param *param);
 
 //	printing
 void	bt_putstr(t_btree *node);
-void	bt_infix_ls(t_btree *root, void (*func)(t_btree*, t_param*));
-void	ls_print(t_param *param);
-void	ls_print_short(t_param *param);
+void	bt_infix_ls(t_btree *root, t_param *param, void (*func)(t_btree*, t_param*));
+void	ls_print(t_btree *node, t_param *param);
+void	ls_print_short(t_btree *node, t_param *param);
 
 //	main func
 int		ft_ls(t_param *param);

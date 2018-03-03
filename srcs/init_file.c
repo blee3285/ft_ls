@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/02/27 15:27:46 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/02 20:45:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_file	*new_file(char *str, t_param *param)
 	new->size = (long long)info.st_size;
 	new->mtime = info.st_mtimespec;
 	param->blocks += (long long)info.st_blocks;
+	ls_get_len(new, param);
 	return (new);
 }
 
@@ -53,7 +54,20 @@ t_file	*new_dir_file(char *path, char *name, t_param *param)
 	new->size = (long long)info.st_size;
 	new->mtime = info.st_mtimespec;
 	param->blocks += (long long)info.st_blocks;
+	ls_get_len(new, param);
 	return (new);
+}
+
+void	init_param(t_param *param)
+{
+	param->count = 0;
+	param->namelen = 0;
+	param->linklen = 0;
+	param->usrlen = 0;
+	param->grplen = 0;
+	param->sizelen = 0;
+	param->blocks = 0;
+	param->files = NULL;
 }
 
 t_param	*new_param(int ac, char **av)
@@ -70,12 +84,8 @@ t_param	*new_param(int ac, char **av)
 		free(param);
 		return (NULL);
 	}
-	param->count = 0;
-	param->blocks = 0;
-	param->files = NULL;
+	init_param(param);
 	ls_build_tree(ac, av, param);
-	ft_printf("Files Found: %d\n", param->count);
-	ft_printf("Total Blocks: %lld\n", param->blocks);
 	return (param);
 }
 
@@ -88,9 +98,7 @@ t_param	*new_param_dir(char	*dir_name, t_param *old)
 	if (!(param = (t_param*)malloc(sizeof(t_file))))
 		return (NULL);
 	param->flags = ft_strdup(old->flags);
-	param->count = 0;
-	param->blocks = 0;
-	param->files = NULL;
+	init_param(param);
 	ls_open_dir(dir_name, param);
 	return (param);
 }

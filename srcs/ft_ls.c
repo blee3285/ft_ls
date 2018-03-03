@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/02/23 22:01:46 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/02 20:46:17 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int		ft_ls(t_param *param)
 
 	new_dir = NULL;
 	file = param->files->data;
-	ft_printf("%s\n", param->flags);
-	ft_btinfix(param->files, bt_putstr);
+	//ft_printf("%s\n", param->flags);
+	bt_infix_ls(param->files, param, ls_print);
 	if (param->count == 1)
 	{
 		if (bt_dircheck(param->files))
 		{
-			ft_printf("Opening New Dir\n\n");
+			//ft_printf("Opening New Dir\n\n");
 			new_dir = new_param_dir(file->name, param);
 			ft_ls(new_dir);
 		}

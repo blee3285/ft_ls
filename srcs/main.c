@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/02/27 15:22:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/02 20:48:28 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ int		main(int ac, char **av)
 	//mode_t			mode;
 
 	i = 0;
-	if (ac < 2)
-		return (0);
 	param = new_param(ac, av);
 	if (param == NULL)
 	{
@@ -89,5 +87,6 @@ int		main(int ac, char **av)
 	//stat(av[2], &info);
 	//mode = info.st_mode;
 	//ft_printf("%c", check_filetype(mode));
+	ft_putchar('\n');
 	return (0);
 }
