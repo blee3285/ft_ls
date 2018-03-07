@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/02 20:45:10 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/06 14:50:46 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ t_param	*new_param(int ac, char **av)
 		free(param);
 		return (NULL);
 	}
+	param->firstls = 1;
 	init_param(param);
 	ls_build_tree(ac, av, param);
 	return (param);
@@ -98,6 +99,7 @@ t_param	*new_param_dir(char	*dir_name, t_param *old)
 	if (!(param = (t_param*)malloc(sizeof(t_file))))
 		return (NULL);
 	param->flags = ft_strdup(old->flags);
+	param->firstls = 0;
 	init_param(param);
 	ls_open_dir(dir_name, param);
 	return (param);

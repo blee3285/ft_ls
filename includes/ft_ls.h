@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/02 20:36:34 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/06 20:28:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_param
 {
 	t_btree		*files;
 	char		*flags;
+	int			firstls;
 	int			count;
 	int			namelen;
 	int			linklen;
@@ -70,9 +71,9 @@ int		ls_open_dir(char *dir_name, t_param *param);
 
 //	printing
 void	bt_putstr(t_btree *node);
-void	bt_infix_ls(t_btree *root, t_param *param, void (*func)(t_btree*, t_param*));
-void	ls_print(t_btree *node, t_param *param);
-void	ls_print_short(t_btree *node, t_param *param);
+void	ls_btinfix(t_btree *r, t_param *p, void (*func)(t_btree*, t_param*));
+void	ls_print(t_param *param);
+void	print_file(t_btree *node, t_param *param);
 
 //	main func
 int		ft_ls(t_param *param);

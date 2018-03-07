@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/03/02 17:04:12 by blee             ###   ########.fr        #
+#    Updated: 2018/03/06 18:11:24 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ SRC_FILES = bt_func.c \
 			get_len.c \
 			init_file.c \
 			main.c \
-			print_short.c \
-			printing.c
+			printing.c \
+			print_func.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

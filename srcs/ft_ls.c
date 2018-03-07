@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/03/02 20:46:17 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/06 18:09:50 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 int		ft_ls(t_param *param)
 {
-	t_param	*new_dir;
-	t_file	*file;
+	ls_print(param);
 
-	new_dir = NULL;
-	file = param->files->data;
 	//ft_printf("%s\n", param->flags);
-	bt_infix_ls(param->files, param, ls_print);
+	/*
 	if (param->count == 1)
 	{
 		if (bt_dircheck(param->files))
@@ -30,6 +27,7 @@ int		ft_ls(t_param *param)
 			ft_ls(new_dir);
 		}
 	}
+	*/
 	return (0);
 }
 
