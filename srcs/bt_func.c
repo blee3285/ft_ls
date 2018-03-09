@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:05:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/06 17:44:37 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/08 17:04:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void	ls_btinfix(t_btree *r, t_param *p, void (*func)(t_btree*, t_param*))
 	{
 		ls_btinfix(r->left, p, func);
 		func(r, p);
-		ls_btinifx(r->right, p, func);
+		ls_btinfix(r->right, p, func);
 	}
 }

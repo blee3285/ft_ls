@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/27 17:21:49 by blee              #+#    #+#             */
-/*   Updated: 2018/03/06 20:44:59 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/08 17:15:35 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,40 @@
 
 //flags: -l -R -a -r -t
 
-void	print_first(t_param *param)
+void	first_print(t_param *param)
 {
-	t_btree	*node;
+	if (param->flags[1] == 'R')
+	{
+		//use recrusive ls
+	}
+	else
+	{
+		//print files first, then dir
+		ls_btinfix(param->files, param, print_file);
+		ls_btinfix(param->files, param, print_dir);
+	}
+}
 
-	node = param->files;
-	ls_btinfix(node, param, print_file);
+void	other_print(t_param *param)
+{
+	if (param->flags[1] == 'R')
+	{
+		//use recursive ls
+	}
+	else
+	{
+		ls_btinfix(param->files, param, print_all);
+	}
 }
 
 void	ls_print(t_param *param)
 {
-	if (param->flags[1] == 'R')
+	if (param->firstls)
 	{
+		first_print(param);
 	}
 	else
 	{
-		if (param->count == 1 && bt_dircheck(param->files))
-		{
-			//opendir and print
-		}
-		else if (param->firstls)
-		{
-			print_first(t_param *param);
-		}
+		other_print(param);
 	}
 }
