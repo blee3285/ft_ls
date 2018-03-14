@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 17:46:47 by blee              #+#    #+#             */
-/*   Updated: 2018/03/08 19:31:40 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/13 16:24:35 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ void	print_all(t_btree *node, t_param *param)
 	t_file *file;
 
 	file = node->data;
-	if (param->flags[2] == 'a')
-		print_flagl(file, param);
-	else if (file->name[0] != '.')
-		print_flagl(file, param);
+	print_flagl(file, param);
 }
 
 void	print_file(t_btree *node, t_param *param)
