@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/19 17:24:24 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/19 21:53:26 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_file	*new_file(char *str, t_param *param)
 	new->mtime = info.st_mtimespec;
 	param->blocks += (long long)info.st_blocks;
 	ls_get_len(new, param);
-	free(&info);
+	//free(&info);
 	return (new);
 }
 
@@ -58,7 +58,7 @@ t_file	*new_dir_file(char *path, char *name, t_param *param)
 	new->mtime = info.st_mtimespec;
 	param->blocks += (long long)info.st_blocks;
 	ls_get_len(new, param);
-	free(&info);
+	//free(&info);
 	return (new);
 }
 

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/08 17:02:10 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/19 22:15:40 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef struct	s_param
 
 //	init file
 int		bt_cmpname(t_btree *t1, t_btree *t2);
+int		bt_cmpname_r(t_btree *t1, t_btree *t2);
+int		bt_cmpmtime(t_btree *t1, t_btree *t2);
 t_file	*new_file(char *str, t_param *param);
 char	check_filetype(mode_t mode);
 char	*get_perm(mode_t fmode);

@@ -6,18 +6,39 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 15:50:27 by blee              #+#    #+#             */
-/*   Updated: 2018/03/13 17:33:48 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/19 22:19:04 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
+int		(*ls_cmpf(char *flags))(t_btree*, t_btree*)
+{
+	int	(*cmpf)(t_btree*, t_btree*);
+
+	cmpf = NULL;
+	if (flags[3] == 'r')
+	{
+		cmpf = &bt_cmpname_r;
+	}
+	else
+	{
+		if (flags[4] == 't')
+			cmpf = &bt_cmpmtime;
+		else
+			cmpf = &bt_cmpname;
+	}
+	return (cmpf);
+}
+
 int		ls_btadd(char *name, t_param *param)
 {
 	t_file		*file;
+	int		(*cmpf)(t_btree*, t_btree*);
 
+	cmpf = ls_cmpf(param->flags);
 	file = new_file(name, param);
-	ft_btadd(&(param->files), ft_btnew(file, sizeof(t_file)), bt_cmpname);
+	ft_btadd(&(param->files), ft_btnew(file, sizeof(t_file)), *cmpf);
 	param->count++;
 	return (0);
 }
@@ -25,9 +46,11 @@ int		ls_btadd(char *name, t_param *param)
 int		ls_btadd_dir(char *path, char *name, t_param *param)
 {
 	t_file		*file;
+	int		(*cmpf)(t_btree*, t_btree*);
 
+	cmpf = ls_cmpf(param->flags);
 	file = new_dir_file(path, name, param);
-	ft_btadd(&(param->files), ft_btnew(file, sizeof(t_file)), bt_cmpname);
+	ft_btadd(&(param->files), ft_btnew(file, sizeof(t_file)), *cmpf);
 	param->count++;
 	return (0);
 }

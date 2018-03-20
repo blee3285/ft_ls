@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:05:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/19 19:42:53 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/19 22:13:32 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		bt_cmpname(t_btree *t1, t_btree *t2)
 	return (ft_strcmp(node1->name, node2->name));
 }
 
-int		bt_cmpname_rev(t_btree *t1, t_btree *t2)
+int		bt_cmpname_r(t_btree *t1, t_btree *t2)
 {
 	t_file *node1;
 	t_file *node2;
