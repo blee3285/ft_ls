@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 17:46:47 by blee              #+#    #+#             */
-/*   Updated: 2018/03/13 16:24:35 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/22 19:53:04 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,19 @@ void	print_dir(t_btree *node, t_param *param)
 {
 	t_file	*file;
 	t_param	*new_dir;
+	int		file_count;
 
 	file = node->data;
 	new_dir = NULL;
+	file_count = param->count - param->dir_count;
 	if (file->type == 'd')
 	{
 		new_dir = new_param_dir(file->name, param);
-		//ft_printf("%s:\n", file->name);
+		if (file_count || (!file_count && param->firstdir == 0))
+			ft_printf("\n\n");
+		if (param->dir_count > 1 || file_count)
+			ft_printf("%s:\n", file->name);
+		param->firstdir = 0;
 		ft_ls(new_dir);
 	}
 }

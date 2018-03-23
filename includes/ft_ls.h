@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/19 22:15:40 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/22 19:31:14 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ typedef struct	s_param
 	t_btree		*files;
 	char		*flags;
 	int			firstls;
+	int			firstdir;
 	int			count;
+	int			dir_count;
 	int			namelen;
 	int			linklen;
 	int			usrlen;
@@ -52,9 +54,6 @@ typedef struct	s_param
 }				t_param;
 
 //	init file
-int		bt_cmpname(t_btree *t1, t_btree *t2);
-int		bt_cmpname_r(t_btree *t1, t_btree *t2);
-int		bt_cmpmtime(t_btree *t1, t_btree *t2);
 t_file	*new_file(char *str, t_param *param);
 char	check_filetype(mode_t mode);
 char	*get_perm(mode_t fmode);
@@ -65,7 +64,13 @@ char	*usr_name(uid_t uid);
 char	*grp_name(gid_t gid);
 void	ls_get_len(t_file *file, t_param *param);
 
-//	recursion?
+//	Sorting
+int		bt_cmpname(t_btree *t1, t_btree *t2);
+int		bt_cmpname_r(t_btree *t1, t_btree *t2);
+int		bt_cmpmtime(t_btree *t1, t_btree *t2);
+int		bt_cmpmtime_r(t_btree *t1, t_btree *t2);
+
+//	init DIR
 int		bt_dircheck(t_btree *node);
 t_file	*new_dir_file(char *path, char *name, t_param *param);
 t_param	*new_param_dir(char *dir_name, t_param *old);
