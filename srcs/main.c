@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/03/02 20:48:28 by blee             ###   ########.fr       */
+/*   Updated: 2018/03/29 15:47:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int		main(int ac, char **av)
 	//stat(av[2], &info);
 	//mode = info.st_mode;
 	//ft_printf("%c", check_filetype(mode));
-	ft_putchar('\n');
+	if (param->flags[0] != 'l')
+		ft_putchar('\n');
 	return (0);
 }
