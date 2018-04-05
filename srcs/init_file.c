@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/22 19:44:00 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/04 15:18:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_file	*new_file(char *str, t_param *param)
 	if (!(new = (t_file*)malloc(sizeof(t_file))) || invalid)
 		return (NULL);
 	new->name = ft_strdup(str);
-	new->path = ft_strdup("");
+	new->path = ft_strdup(str);
 	new->type = check_filetype(info.st_mode);
 	new->perm = get_perm(info.st_mode);
 	new->links = (long)info.st_nlink;

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/27 17:21:49 by blee              #+#    #+#             */
-/*   Updated: 2018/03/29 15:49:02 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/04 15:29:44 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,16 @@
 
 void	first_print(t_param *param)
 {
-	if (param->flags[1] == 'R')
-	{
-		//use recrusive ls
-	}
-	else
-	{
-		//print files first, then dir
-		ls_btinfix(param->files, param, print_file);
-		ls_btinfix(param->files, param, print_dir);
-	}
+	//print files first, then dir
+	ls_btinfix(param->files, param, print_file);
+	ls_btinfix(param->files, param, print_dir);
 }
 
 void	other_print(t_param *param)
 {
+	ls_btinfix(param->files, param, print_all);
 	if (param->flags[1] == 'R')
-	{
-		//use recursive ls
-	}
-	else
-	{
-		ls_btinfix(param->files, param, print_all);
-	}
+		ls_btinfix(param->files, param, print_dir);
 }
 
 void	ls_print(t_param *param)
