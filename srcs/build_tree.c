@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 15:50:27 by blee              #+#    #+#             */
-/*   Updated: 2018/03/22 18:13:02 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/11 18:11:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,16 @@ int		ls_btadd(char *name, t_param *param)
 
 	cmpf = ls_cmpf(param->flags);
 	file = new_file(name, param);
+	if (!file)
+	{
+		ft_printf("ft_ls: %s: No such file or directory\n", name);
+		return (0);
+	}
 	ft_btadd(&(param->files), ft_btnew(file, sizeof(t_file)), *cmpf);
 	param->count++;
 	if (file->type == 'd')
 		param->dir_count++;
-	return (0);
+	return (1);
 }
 
 int		ls_btadd_dir(char *path, char *name, t_param *param)
@@ -61,18 +66,23 @@ int		ls_btadd_dir(char *path, char *name, t_param *param)
 int		ls_build_tree(int ac, char **av, t_param *param)
 {
 	int			i;
+	int			valid;
 
 	i = 1;
 	while ((i < ac) && (av[i][0] == '-'))
 		i++;
 	if (i == ac)
-		ls_btadd(".", param);
+		valid = ls_btadd(".", param);
 	else
 		while (i < ac)
 		{
-			ls_btadd(av[i], param);
+			valid = ls_btadd(av[i], param);
 			i++;
+			if (!valid)
+				return (0);
 		}
+	if (!valid)
+		return (0);
 	return (1);
 }
 

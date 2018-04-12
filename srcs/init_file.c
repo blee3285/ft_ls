@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/04/04 15:18:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/11 19:08:56 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ t_param	*new_param(int ac, char **av)
 {
 	t_param		*param;
 	t_file		*file;
+	int			valid;
 
 	file = NULL;
 	if (!(param = (t_param*)malloc(sizeof(t_file))))
@@ -90,7 +91,10 @@ t_param	*new_param(int ac, char **av)
 	}
 	param->firstls = 1;
 	init_param(param);
-	ls_build_tree(ac, av, param);
+	valid = ls_build_tree(ac, av, param);
+	// free param if !valid
+	if (!valid)
+		return (NULL);
 	return (param);
 }
 
