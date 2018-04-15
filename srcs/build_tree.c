@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 15:50:27 by blee              #+#    #+#             */
-/*   Updated: 2018/04/11 18:11:30 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/14 16:21:26 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,16 @@ int		(*ls_cmpf(char *flags))(t_btree*, t_btree*)
 			cmpf = &bt_cmpmtime_r;
 		else
 			cmpf = &bt_cmpname_r;
+	else if (flags[4] == 't')
+		cmpf = &bt_cmpmtime;
 	else
-		if (flags[4] == 't')
-			cmpf = &bt_cmpmtime;
-		else
-			cmpf = &bt_cmpname;
+		cmpf = &bt_cmpname;
 	return (cmpf);
 }
 
 int		ls_btadd(char *name, t_param *param)
 {
-	t_file		*file;
+	t_file	*file;
 	int		(*cmpf)(t_btree*, t_btree*);
 
 	cmpf = ls_cmpf(param->flags);
@@ -51,7 +50,7 @@ int		ls_btadd(char *name, t_param *param)
 
 int		ls_btadd_dir(char *path, char *name, t_param *param)
 {
-	t_file		*file;
+	t_file	*file;
 	int		(*cmpf)(t_btree*, t_btree*);
 
 	cmpf = ls_cmpf(param->flags);

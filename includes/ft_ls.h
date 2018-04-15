@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/04/11 19:09:25 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/14 19:04:33 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ void	print_file(t_btree *node, t_param *param);
 void	print_dir(t_btree *node, t_param *param);
 void	print_all(t_btree *node, t_param *param);
 void	print_long(t_file *file, t_param *param);
+
+void	free_ls_tree(t_btree *node);
+void	free_ls_param(t_param *param);
 
 //	main func
 int		ft_ls(t_param *param);

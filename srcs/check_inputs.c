@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/02/27 15:36:29 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/14 16:48:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ int		flag_id(char c, char *flags)
 
 int		parse_inputs(char *input, char **flags)
 {
-	//return int array with flags
-	//flags: -l -R -a -r -t
-	char		*temp;
+	char	*temp;
 	int		id;
 
 	id = 0;
@@ -42,7 +40,7 @@ int		parse_inputs(char *input, char **flags)
 			temp[id] = *input;
 		else
 		{
-			ft_printf("ls: illegal option -- %c\n", *input); 
+			ft_printf("ls: illegal option -- %c\n", *input);
 			ft_printf("usage: ls [-Ralrt]\n");
 			return (0);
 		}

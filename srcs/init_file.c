@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/04/11 19:08:56 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/14 16:40:58 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ t_param	*new_param(int ac, char **av)
 	return (param);
 }
 
-t_param	*new_param_dir(char	*dir_name, t_param *old)
+t_param	*new_param_dir(char *dir_name, t_param *old)
 {
 	t_param		*param;
 	t_file		*file;

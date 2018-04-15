@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/05 15:22:13 by blee              #+#    #+#             */
-/*   Updated: 2018/02/14 13:16:22 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/14 16:18:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ char	check_filetype(mode_t mode)
 
 	i = mode & S_IFMT;
 	if (i == S_IFDIR)
-		return 'd';
+		return ('d');
 	else if (i == S_IFCHR)
-		return 'c';
+		return ('c');
 	else if (i == S_IFBLK)
-		return 'b';
+		return ('b');
 	else if (i == S_IFIFO)
-		return 'f';
+		return ('f');
 	else if (i == S_IFLNK)
-		return 'l';
+		return ('l');
 	else if (i == S_IFSOCK)
-		return 's';
+		return ('s');
 	else
-		return '-';
+		return ('-');
 }
 
 void	get_perm_usr(char **str, mode_t fmode)

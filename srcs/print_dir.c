@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 19:09:02 by blee              #+#    #+#             */
-/*   Updated: 2018/04/11 19:07:38 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/14 15:14:25 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ void	indent_dir(t_param *old, t_param *new, t_file *file)
 
 	file_count = old->count - old->dir_count;
 	if (file_count || old->firstdir == 0)
-		ft_printf("\n\n");
+	{
+		if (old->flags[0] == 'l')
+			ft_printf("\n");
+		else
+			ft_printf("\n\n");
+	}
 	if (old->dir_count > 1 || file_count)
 		ft_printf("%s:\n", file->path);
 	if ((old->flags[0] == 'l') && (old->dir_count > 0))

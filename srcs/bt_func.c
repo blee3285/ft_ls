@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:05:56 by blee              #+#    #+#             */
-/*   Updated: 2018/03/19 22:13:32 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/14 16:46:59 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		bt_cmpname_r(t_btree *t1, t_btree *t2)
 
 	node1 = (t_file*)t1->data;
 	node2 = (t_file*)t2->data;
-	return(ft_strcmp(node2->name, node1->name));
+	return (ft_strcmp(node2->name, node1->name));
 }
 
 int		bt_dircheck(t_btree *node)
