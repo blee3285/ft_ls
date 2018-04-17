@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:38:21 by blee              #+#    #+#             */
-/*   Updated: 2018/04/14 19:22:25 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/16 17:19:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		ft_ls(t_param *param)
 {
+	if (!param)
+		return (1);
 	ls_print(param);
 	if (param != NULL)
 		free_ls_param(param);

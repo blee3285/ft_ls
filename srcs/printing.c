@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/27 17:21:49 by blee              #+#    #+#             */
-/*   Updated: 2018/04/04 15:29:44 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/16 15:54:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 
 void	first_print(t_param *param)
 {
-	//print files first, then dir
 	ls_btinfix(param->files, param, print_file);
-	ls_btinfix(param->files, param, print_dir);
+	ls_btinfix(param->files, param, print_first_dir);
 }
 
 void	other_print(t_param *param)
@@ -31,11 +30,7 @@ void	other_print(t_param *param)
 void	ls_print(t_param *param)
 {
 	if (param->firstls)
-	{
 		first_print(param);
-	}
 	else
-	{
 		other_print(param);
-	}
 }

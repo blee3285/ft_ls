@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 20:02:27 by blee              #+#    #+#             */
-/*   Updated: 2018/04/11 14:45:11 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/16 19:08:50 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ void	print_time(t_file *file)
 		ft_printf("%6.5s ", &str[11]);
 }
 
+void	print_link(t_file *file)
+{
+	char	link[200];
+	int		link_size;
+
+	if ((link_size = readlink(file->path, link, 200)) == -1)
+		return ;
+	else
+	{
+		link[link_size] = '\0';
+		ft_printf(" -> %s", link);
+	}
+}
+
 void	print_long(t_file *file, t_param *param)
 {
 	ft_printf("%c", file->type);
@@ -36,5 +50,8 @@ void	print_long(t_file *file, t_param *param)
 	ft_printf("%*s  ", param->grplen, file->grp_name);
 	ft_printf("%*ld", param->sizelen, file->size);
 	print_time(file);
-	ft_printf("%s\n", file->name);
+	ft_printf("%s", file->name);
+	if (file->type == 'l')
+		print_link(file);
+	ft_putchar('\n');
 }

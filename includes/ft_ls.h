@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/04/14 19:04:33 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/16 15:48:27 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ls_btinfix(t_btree *r, t_param *p, void (*func)(t_btree*, t_param*));
 void	ls_print(t_param *param);
 void	print_file(t_btree *node, t_param *param);
 void	print_dir(t_btree *node, t_param *param);
+void	print_first_dir(t_btree *node, t_param *param);
 void	print_all(t_btree *node, t_param *param);
 void	print_long(t_file *file, t_param *param);
 

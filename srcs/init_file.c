@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 17:50:56 by blee              #+#    #+#             */
-/*   Updated: 2018/04/14 16:40:58 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/16 19:36:29 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_file	*new_dir_file(char *path, char *name, t_param *param)
 	if (invalid)
 		return (NULL);
 	new->type = check_filetype(info.st_mode);
-	new->perm = get_perm(info.st_uid);
+	new->perm = get_perm(info.st_mode);
 	new->links = (long)info.st_nlink;
 	new->usr_name = usr_name(info.st_uid);
 	new->grp_name = grp_name(info.st_gid);
@@ -92,9 +92,11 @@ t_param	*new_param(int ac, char **av)
 	param->firstls = 1;
 	init_param(param);
 	valid = ls_build_tree(ac, av, param);
-	// free param if !valid
 	if (!valid)
+	{
+		free_ls_param(param);
 		return (NULL);
+	}
 	return (param);
 }
 

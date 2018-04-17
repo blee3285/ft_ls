@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:17:19 by blee              #+#    #+#             */
-/*   Updated: 2018/04/14 16:48:36 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/16 17:00:29 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int		parse_inputs(char *input, char **flags)
 			temp[id] = *input;
 		else
 		{
-			ft_printf("ls: illegal option -- %c\n", *input);
-			ft_printf("usage: ls [-Ralrt]\n");
+			ft_printf("ft_ls: illegal option -- %c\n", *input);
+			ft_printf("usage: ls [-Ralrt] [file ...]\n");
 			return (0);
 		}
 		input++;

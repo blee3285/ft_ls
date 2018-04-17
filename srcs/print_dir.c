@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 19:09:02 by blee              #+#    #+#             */
-/*   Updated: 2018/04/14 15:14:25 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/16 15:47:34 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,25 @@ void	indent_dir(t_param *old, t_param *new, t_file *file)
 }
 
 void	print_dir(t_btree *node, t_param *param)
+{
+	t_file	*file;
+	t_param	*new_dir;
+
+	file = node->data;
+	new_dir = NULL;
+	if	(param->flags[1] == 'R')
+		if (ft_strcmp(file->name, ".") == 0 || ft_strcmp(file->name, "..") == 0)
+		return ;
+	if (file->type == 'd')
+	{
+		new_dir = new_param_dir(file->path, param);
+		indent_dir(param, new_dir, file);
+		ft_ls(new_dir);
+		param->firstdir = 0;
+	}
+}
+
+void	print_first_dir(t_btree *node, t_param *param)
 {
 	t_file	*file;
 	t_param	*new_dir;
