@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 15:50:27 by blee              #+#    #+#             */
-/*   Updated: 2018/04/14 16:21:26 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/18 18:26:20 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		ls_btadd(char *name, t_param *param)
 	param->count++;
 	if (file->type == 'd')
 		param->dir_count++;
+	free(file);
 	return (1);
 }
 
@@ -59,6 +60,7 @@ int		ls_btadd_dir(char *path, char *name, t_param *param)
 	param->count++;
 	if (file->type == 'd')
 		param->dir_count++;
+	free(file);
 	return (0);
 }
 

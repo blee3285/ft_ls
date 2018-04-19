@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:07:56 by blee              #+#    #+#             */
-/*   Updated: 2018/04/16 15:48:27 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/18 17:16:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	print_long(t_file *file, t_param *param);
 
 void	free_ls_tree(t_btree *node);
 void	free_ls_param(t_param *param);
+void	free_file(t_file *file);
 
 //	main func
 int		ft_ls(t_param *param);

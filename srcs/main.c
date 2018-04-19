@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:43:59 by blee              #+#    #+#             */
-/*   Updated: 2018/04/16 17:14:12 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/18 19:31:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,5 @@ int		main(int ac, char **av)
 	if (param == NULL)
 		return (1);
 	ft_ls(param);
-	if (param->flags[0] != 'l')
-		ft_putchar('\n');
 	return (0);
 }
