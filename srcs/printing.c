@@ -6,13 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/27 17:21:49 by blee              #+#    #+#             */
-/*   Updated: 2018/04/16 15:54:47 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/20 14:57:39 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-//flags: -l -R -a -r -t
 
 void	first_print(t_param *param)
 {

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 19:09:02 by blee              #+#    #+#             */
-/*   Updated: 2018/04/16 15:47:34 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/20 15:01:21 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	print_dir(t_btree *node, t_param *param)
 
 	file = node->data;
 	new_dir = NULL;
-	if	(param->flags[1] == 'R')
-		if (ft_strcmp(file->name, ".") == 0 || ft_strcmp(file->name, "..") == 0)
-		return ;
+	if (param->flags[1] == 'R')
+		if (!ft_strcmp(file->name, ".") || !ft_strcmp(file->name, ".."))
+			return ;
 	if (file->type == 'd')
 	{
 		new_dir = new_param_dir(file->path, param);
